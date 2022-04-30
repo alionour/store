@@ -1,6 +1,7 @@
 import * as express from "express";
 import authentication from "./apis/authentication";
 import categories from "./apis/categories";
+import dashboard from './apis/dashboard';
 import orders from "./apis/orders";
 import products from "./apis/products";
 import users from "./apis/users";
@@ -16,5 +17,6 @@ router.use("/api/products", products);
 router.use("/api/categories", categories);
 router.use("/api/users", users);
 router.use("/api/orders", orders);
+router.use("/api/dashboard", dashboard);
 
 export default router;

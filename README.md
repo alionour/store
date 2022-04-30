@@ -57,8 +57,43 @@ ___
 | `npm run jasmine`  | Used to undo all database migrations.                                                                     |
 | `npm run watch`    | Used to run the app in watch mode.                                                                        |
 ___
-##### Models
+#### Models
 
+```js
+export type Category = {
+  id?: number;
+  category: string;
+};
+```
+
+```js
+export type Order = {
+  id?: number;
+  product_id: number;
+  user_id: number;
+  quantity: number;
+  status: string;
+};
+```
+```js
+export type Product = {
+  id?: number;
+  name: string;
+  price: number;
+  category_id: number;
+};
+```
+```js
+export type User = {
+  id?: number;
+  email: string;
+  firstname: string;
+  lastname: string;
+  password: string;
+};
+
+};
+```
 #### Endpoints
 [/](http://localhost:3001/)
     
@@ -193,3 +228,23 @@ ___
     Requires Authorization.
     Requires the [id] in body
     returns Json
+###### Dashboard Endpoints
+
+[/api/dashboard/usersWithOrders](http://localhost:3001/api/dashboard/usersWithOrders) 
+    
+    requires [**Authorization**]
+    Returns all users having orders;
+    GET METHOD.
+    returns Json.
+[/api/dashboard/topProducts](http://localhost:3001/api/dashboard/topProducts) 
+    
+    requires [**Authorization**]
+    Returns all top ordered products;
+    GET METHOD.
+    returns Json.
+[/api/dashboard/productsInOrders](http://localhost:3001/api/dashboard/productsInOrders) 
+    
+    requires [**Authorization**]
+    Returns all products included in orders;
+    GET METHOD.
+    returns Json.

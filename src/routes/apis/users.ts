@@ -14,4 +14,5 @@ users.post("/", auth, controller.create);
 
 users.delete("/", auth, controller.delete);
 
+
 export default users;
