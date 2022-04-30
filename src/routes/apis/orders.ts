@@ -1,22 +1,27 @@
-import { Router } from 'express';
-import { OrderController } from '../../controllers/orders';
-import { authenticateToken } from '../../middlewares/authenticate_token';
+import { Router } from "express";
+import { OrderController } from "../../controllers/orders";
+import { auth } from "../../middlewares/auth";
 
 const controller = new OrderController();
 // eslint-disable-next-line new-cap
 const orders = Router();
 
-orders.get('/', authenticateToken, controller.index);
+orders.get("/", auth, controller.index);
 
-orders.get('/:id', authenticateToken, controller.show);
+orders.get("/:id", auth, controller.show);
 
-orders.get('/user/:userId', authenticateToken, controller.showOrdersByUserId);
+orders.get("/user/:userId", auth, controller.showOrdersByUserId);
 
-orders.get('/user/complete/:userId', authenticateToken, controller.showCompletedOrdersByUserId);
+orders.get(
+  "/user/complete/:userId",
+  auth,
+  controller.showCompletedOrdersByUserId
+);
 
-orders.get('/user/active/:userId', authenticateToken, controller.showActiveOrdersByUserId);
+orders.get("/user/active/:userId", auth, controller.showActiveOrdersByUserId);
 
-orders.post('/', authenticateToken, controller.create);
+orders.post("/", auth, controller.create);
 
+orders.delete("/", auth, controller.delete);
 
 export default orders;

@@ -1,7 +1,6 @@
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 
-
-const pepper =process.env.PEPPER as string;
+const pepper = process.env.PEPPER as string;
 /**
  * compare hashes
  *
@@ -10,10 +9,7 @@ const pepper =process.env.PEPPER as string;
  * @param {string} hash
  * @return {*}  {string}
  */
-export function compareHash(password:string, hash:string):boolean {
-  const result = bcrypt.compareSync(
-      password+pepper, hash,
-  );
+export function compareHash(password: string, hash: string): boolean {
+  const result = bcrypt.compareSync(password + pepper, hash);
   return result;
 }
-

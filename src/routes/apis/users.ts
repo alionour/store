@@ -1,15 +1,17 @@
-import { Router } from 'express';
-import { UserController } from '../../controllers/users';
-import { authenticateToken } from '../../middlewares/authenticate_token';
+import { Router } from "express";
+import { UserController } from "../../controllers/users";
+import { auth } from "../../middlewares/auth";
 
 const controller = new UserController();
 // eslint-disable-next-line new-cap
 const users = Router();
 
-users.get('/', authenticateToken, controller.index);
+users.get("/", auth, controller.index);
 
-users.get('/:id', authenticateToken, controller.show);
+users.get("/:id", auth, controller.show);
 
-users.post('/', authenticateToken, controller.create);
+users.post("/", auth, controller.create);
+
+users.delete("/", auth, controller.delete);
 
 export default users;

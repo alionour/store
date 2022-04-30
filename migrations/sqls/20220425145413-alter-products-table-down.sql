@@ -8,4 +8,4 @@ ALTER TABLE
 ALTER TABLE
   products
 ALTER COLUMN
-  category_id TYPE VARCHAR(255);
+  category TYPE VARCHAR(255);

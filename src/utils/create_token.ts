@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 /**
  * creates a token
@@ -8,13 +8,9 @@ import jwt from 'jsonwebtoken';
  * @return {*}  {string}
  */
 export function generateToken(payload: Object): string {
-    const secret = process.env.TOKEN_SECRET as string;
-    const token = jwt.sign(
-        payload,
-        secret,
-        {
-            expiresIn: '72h',
-        },
-    );
-    return token;
+  const secret = process.env.TOKEN_SECRET as string;
+  const token = jwt.sign(payload, secret, {
+    expiresIn: "72h",
+  });
+  return token;
 }
